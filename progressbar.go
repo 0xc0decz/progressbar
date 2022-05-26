@@ -787,13 +787,13 @@ func renderProgressBar(c config, s *state) (int, error) {
 		repeatAmount = 0
 	}
 	if c.ignoreLength {
-		str = fmt.Sprintf("%s %s %s ",
+		str = fmt.Sprintf("--%s %s %s ",
 			spinners[c.spinnerType][int(math.Round(math.Mod(float64(time.Since(s.startTime).Milliseconds()/100), float64(len(spinners[c.spinnerType])))))],
 			c.description,
 			bytesString,
 		)
 	} else if leftBrac == "" {
-		str = fmt.Sprintf("%s%4d%% %s%s%s%s %s ",
+		str = fmt.Sprintf("--%s%4d%% %s%s%s%s %s ",
 			c.description,
 			s.currentPercent,
 			c.theme.BarStart,
@@ -804,7 +804,7 @@ func renderProgressBar(c config, s *state) (int, error) {
 		)
 	} else {
 		if s.currentPercent == 100 {
-			str = fmt.Sprintf("\r%s%4d%% %s%s%s%s %s",
+			str = fmt.Sprintf("--%s%4d%% %s%s%s%s %s",
 				c.description,
 				s.currentPercent,
 				c.theme.BarStart,
@@ -814,7 +814,7 @@ func renderProgressBar(c config, s *state) (int, error) {
 				bytesString,
 			)
 		} else {
-			str = fmt.Sprintf("%s%4d%% %s%s%s%s %s [%s:%s]",
+			str = fmt.Sprintf("--%s%4d%% %s%s%s%s %s [%s:%s]",
 				c.description,
 				s.currentPercent,
 				c.theme.BarStart,
