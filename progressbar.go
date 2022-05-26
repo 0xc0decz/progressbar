@@ -854,7 +854,7 @@ func clearProgressBar(c config, s state) error {
 }
 
 func writeString(c config, str string) error {
-	if _, err := io.WriteString(c.writer, str+" jocho "); err != nil {
+	if _, err := io.WriteString(c.writer, str); err != nil {
 		return err
 	}
 
